@@ -1,0 +1,5 @@
+{
+    "node": true,
+    "browser": true,
+    "predef": ["cordova","ionic","angular","alert","$","locache", "response"]
+}

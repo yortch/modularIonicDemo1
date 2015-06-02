@@ -1,0 +1,5 @@
+{
+  "name": "menuDemo1",
+  "app_id": "",
+  "gulpStartupTasks": ["browserify2"]
+}
