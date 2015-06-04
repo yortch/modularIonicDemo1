@@ -8,8 +8,8 @@ module.exports = ['$stateProvider', '$urlRouterProvider',
 	  .state('app', {
 	    url: "/app",
 	    abstract: true,
-	    templateUrl: "modules/menu/menu.html",
-	    controller: 'StarterController as starterController'
+	    templateUrl: "js/modules/menu/menu.html",
+		controller: 'LoginController as loginController'
 	  })
 
 	  .state('app.search', {
@@ -33,8 +33,8 @@ module.exports = ['$stateProvider', '$urlRouterProvider',
 	      url: "/playlists",
 	      views: {
 	        'menuContent': {
-	          templateUrl: "modules/playlists/playlist.html",
-	          controller: 'PlaylistController as playlistController'
+	          templateUrl: "js/modules/playlists/playlists.html",
+	          controller: 'PlaylistsController as playlistsController'
 	        }
 	      }
 	    })
@@ -43,8 +43,8 @@ module.exports = ['$stateProvider', '$urlRouterProvider',
 	    url: "/playlists/:playlistId",
 	    views: {
 	      'menuContent': {
-	        templateUrl: "modules/playlists/playlist.html",
-	        controller: 'PlaylistsController as playlistsController'
+	        templateUrl: "js/modules/playlists/playlist.html",
+	        controller: 'PlaylistController as playlistController'
 	      }
 	    }
 	  });

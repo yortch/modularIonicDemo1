@@ -11,9 +11,13 @@ var sourcemaps = require('gulp-sourcemaps');
 
 
 var jshint = require('gulp-jshint'),
-    browserify = require('gulp-browserify'),
+    browserify = require('browserify'),
     concat = require('gulp-concat'),
     clean = require('gulp-clean');
+
+var vinylSource = require('vinyl-source-stream');
+var exorcist = require('exorcist');
+var path = require('path');
 
 var paths = {
   sass: ['./scss/**/*.scss'],
@@ -69,7 +73,7 @@ gulp.task('lint', function() {
   .pipe(jshint.reporter('default'));
 });
 
-gulp.task('browserify', function() {
+gulp.task('browserify-old', function() {
   // Single point of entry (make sure not to src ALL your files, browserify will figure it out for you)
   gulp.src(['./www/js/app.js'])
   .pipe(browserify({
@@ -84,4 +88,14 @@ gulp.task('browserify', function() {
   // Output it to our dist folder
   .pipe(gulp.dest('./www/dist'));
 });
+
+gulp.task('browserify', function() {
+  return browserify('./www/js/app.js', {debug: true})
+    .bundle()
+    .pipe(vinylSource('bundle.js'))
+    //.pipe(exorcist(path.join(__dirname, 'www/dist/bundle.js.map')))
+    .pipe(gulp.dest('./www/dist'));
+});
+
+
 
