@@ -7,17 +7,10 @@ var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
 
-var sourcemaps = require('gulp-sourcemaps');
-
-
-var jshint = require('gulp-jshint'),
-    browserify = require('browserify'),
-    concat = require('gulp-concat'),
-    clean = require('gulp-clean');
-
+//Additional dependencies added for browserify and lint
+var jshint = require('gulp-jshint');
+var browserify = require('browserify');
 var vinylSource = require('vinyl-source-stream');
-var exorcist = require('exorcist');
-var path = require('path');
 
 var paths = {
   sass: ['./scss/**/*.scss'],
@@ -90,7 +83,7 @@ gulp.task('browserify-old', function() {
 });
 
 gulp.task('browserify', function() {
-  return browserify('./www/js/app.js', {debug: true})
+  return browserify('./www/js/app.js', {debug: true, sourcemaps: true})
     .bundle()
     .pipe(vinylSource('bundle.js'))
     //.pipe(exorcist(path.join(__dirname, 'www/dist/bundle.js.map')))

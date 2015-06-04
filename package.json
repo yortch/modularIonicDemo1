@@ -46,7 +46,8 @@
     "com.ionic.keyboard"
   ],
   "cordovaPlatforms": [
-    "ios"
+    "ios",
+    "android"
   ],
   "browserify-shim": {
     "jquery": "$",
