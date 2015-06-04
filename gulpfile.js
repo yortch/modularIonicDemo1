@@ -14,11 +14,12 @@ var vinylSource = require('vinyl-source-stream');
 
 var paths = {
   sass: ['./scss/**/*.scss'],
-  src: ['./www/js/*.js'],
+  jsSrc: ['./www/js/*.js'],
+  src: ['./wwww/**/*', '!wwww/lib/**/*', '!www/dist/**/*'],
   appSrc: ['./www/js/app.js']
 };
 
-gulp.task('default', ['lint', 'browserify', 'watch']);
+gulp.task('default', ['lint', 'browserify']);
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
@@ -35,7 +36,9 @@ gulp.task('sass', function(done) {
 });
 
 gulp.task('watch', function() {
-  gulp.watch([paths.src, paths.appSrc, paths.sass], ['lint','browserify','sass']);
+  gulp.watch(paths.sass, ['sass']);
+  gulp.watch(paths.jsSrc, ['browserify']);
+  gulp.watch(paths.jsSrc, ['lint']);
 });
 
 gulp.task('install', ['git-check'], function() {
@@ -60,7 +63,7 @@ gulp.task('git-check', function(done) {
 
 // JSHint task
 gulp.task('lint', function() {
-  gulp.src(paths.src)
+  gulp.src(paths.jsSrc)
   .pipe(jshint())
   // You can look into pretty reporters as well, but that's another story
   .pipe(jshint.reporter('default'));
