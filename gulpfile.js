@@ -16,7 +16,8 @@ var paths = {
   sass: ['./scss/**/*.scss'],
   jsSrc: ['./www/js/*.js'],
   src: ['./wwww/**/*', '!wwww/lib/**/*', '!www/dist/**/*'],
-  appSrc: ['./www/js/app.js']
+  appSrc: ['./www/js/app.js'],
+  bundleSrc: ['./www/js/dist/bundle.js']
 };
 
 gulp.task('default', ['lint', 'browserify']);
@@ -63,10 +64,11 @@ gulp.task('git-check', function(done) {
 
 // JSHint task
 gulp.task('lint', function() {
-  gulp.src(paths.jsSrc)
+  gulp.src(['./www/js/**/*.js'])
   .pipe(jshint())
   // You can look into pretty reporters as well, but that's another story
-  .pipe(jshint.reporter('default'));
+  .pipe(jshint.reporter('default'))
+  .pipe(jshint.reporter('fail'));
 });
 
 gulp.task('browserify', function() {

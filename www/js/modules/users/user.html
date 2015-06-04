@@ -1,0 +1,16 @@
+<ion-view view-title="{{user.name.first}}">
+  <ion-content>
+  	<div class="list card">
+  		<div class="item item-avatar">
+    		<img src="{{user.picture.medium}}" />
+    		<h2>{{user.name.first}} {{user.name.last}}</h2>
+    		<p>{{user.email}}</p>
+    		<p>{{user.phone}}</p>
+  		</div>
+  		<div class="item item-body">
+  			<p>{{user.location.street}}</p>
+  			<p>{{user.locatin.county}}, {{user.location.state}}</p>
+  		</div>
+	</div>
+  </ion-content>
+</ion-view>

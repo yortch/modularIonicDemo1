@@ -57,9 +57,18 @@ module.exports = ['$stateProvider', '$urlRouterProvider',
 	        }
 	      }
 	    })
+	   .state('app.user', {
+	      url: "/users/:userId",
+	      views: {
+	        'menuContent': {
+	          templateUrl: "js/modules/users/user.html",
+	          controller: 'UserController'
+	        }
+	      }
+	    })
 
 	  ;
 	  // if none of the above states are matched, use this as the fallback
-	  $urlRouterProvider.otherwise('/app/playlists');
+	  $urlRouterProvider.otherwise('/app/users');
 	}
 ];
