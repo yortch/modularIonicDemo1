@@ -1,0 +1,12 @@
+<ion-view view-title="Person">
+  <ion-content>
+	<ion-refresher on-refresh="doRefresh()"></ion-refresher>
+	<ion-list>
+	  <ion-item class="item-avatar" ng-repeat="item in items">
+	    <img src="{{item.user.picture.thumbnail}} " />
+	    {{item.user.name.first}} {{item.user.name.last}}
+	    <p>{{item.user.location.city}}</p>
+	  </ion-item>
+	</ion-list>
+  </ion-content>
+</ion-view>

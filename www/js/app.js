@@ -7,12 +7,14 @@ require('ionic/js/ionic.bundle');
 require('./modules/playlists/playlists');
 require('./modules/login/login');
 require('./modules/menu/menu');
+require('./modules/person/person');
   
 module.exports = angular.module('appstart', [
     'ionic',
     'menu',
     'login',
-    'playlists'
+    'playlists',
+    'person'
   ])
   .config(require('./router'))
   .run(require('./app-main'))

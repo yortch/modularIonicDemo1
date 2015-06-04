@@ -47,7 +47,18 @@ module.exports = ['$stateProvider', '$urlRouterProvider',
 	        controller: 'PlaylistController as playlistController'
 	      }
 	    }
-	  });
+	  })
+	   .state('app.person', {
+	      url: "/person",
+	      views: {
+	        'menuContent': {
+	          templateUrl: "js/modules/person/person.html",
+	          controller: 'PersonController'
+	        }
+	      }
+	    })
+
+	  ;
 	  // if none of the above states are matched, use this as the fallback
 	  $urlRouterProvider.otherwise('/app/playlists');
 	}
