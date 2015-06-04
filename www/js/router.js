@@ -16,7 +16,7 @@ module.exports = ['$stateProvider', '$urlRouterProvider',
 	    url: "/search",
 	    views: {
 	      'menuContent': {
-	        templateUrl: "templates/search.html"
+	        templateUrl: "js/modules/search/search.html"
 	      }
 	    }
 	  })
@@ -25,7 +25,7 @@ module.exports = ['$stateProvider', '$urlRouterProvider',
 	    url: "/browse",
 	    views: {
 	      'menuContent': {
-	        templateUrl: "templates/browse.html"
+	        templateUrl: "js/modules/browse/browse.html"
 	      }
 	    }
 	  })
