@@ -18,7 +18,7 @@ var paths = {
   appSrc: ['./www/js/app.js']
 };
 
-gulp.task('default', ['lint', 'browserify']);
+gulp.task('default', ['lint', 'browserify', 'watch']);
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
@@ -60,33 +60,16 @@ gulp.task('git-check', function(done) {
 
 // JSHint task
 gulp.task('lint', function() {
-  gulp.src('./www/js/*.js')
+  gulp.src(paths.src)
   .pipe(jshint())
   // You can look into pretty reporters as well, but that's another story
   .pipe(jshint.reporter('default'));
 });
 
-gulp.task('browserify-old', function() {
-  // Single point of entry (make sure not to src ALL your files, browserify will figure it out for you)
-  gulp.src(['./www/js/app.js'])
-  .pipe(browserify({
-    insertGlobals: true,
-    debug: true,
-  }))
-  // Bundle to a single file
-  .pipe(concat('bundle.js'))
-  .pipe(sourcemaps.init({loadMaps: true})) // loads map from browserify file
-  // Add transformation tasks to the pipeline here.
-  .pipe(sourcemaps.write('./')) // writes .map file
-  // Output it to our dist folder
-  .pipe(gulp.dest('./www/dist'));
-});
-
 gulp.task('browserify', function() {
-  return browserify('./www/js/app.js', {debug: true, sourcemaps: true})
+  return browserify(paths.appSrc, {debug: true})
     .bundle()
     .pipe(vinylSource('bundle.js'))
-    //.pipe(exorcist(path.join(__dirname, 'www/dist/bundle.js.map')))
     .pipe(gulp.dest('./www/dist'));
 });
 
