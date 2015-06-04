@@ -48,12 +48,12 @@ module.exports = ['$stateProvider', '$urlRouterProvider',
 	      }
 	    }
 	  })
-	   .state('app.person', {
-	      url: "/person",
+	   .state('app.users', {
+	      url: "/users",
 	      views: {
 	        'menuContent': {
-	          templateUrl: "js/modules/person/person.html",
-	          controller: 'PersonController'
+	          templateUrl: "js/modules/users/users.html",
+	          controller: 'UsersController'
 	        }
 	      }
 	    })

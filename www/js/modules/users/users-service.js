@@ -1,6 +1,6 @@
 'use strict';
 
-function PersonService($http) {
+function UsersService($http) {
   var BASE_URL = "http://api.randomuser.me/";
   var items = [];
 
@@ -20,4 +20,4 @@ function PersonService($http) {
   }
 }
 
-module.exports = ['$http', PersonService];
+module.exports = ['$http', UsersService];

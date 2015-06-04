@@ -1,15 +1,15 @@
 'use strict';
 
-function PersonController($scope, $timeout, PersonService) {
+function UsersController($scope, $timeout, UsersService) {
   
   $scope.items = [];
 
-  PersonService.GetFeed().then(function(items){
+  UsersService.GetFeed().then(function(items){
     $scope.items = items;
   });
 
   $scope.doRefresh = function() {
-	  PersonService.GetNewUser().then(function(items){
+	  UsersService.GetNewUser().then(function(items){
 	    $scope.items = items.concat($scope.items);
 
 	    //Stop the ion-refresher from spinning
@@ -18,4 +18,4 @@ function PersonController($scope, $timeout, PersonService) {
 	};
 }
 
-module.exports = ['$scope', '$timeout', 'PersonService', PersonController];
+module.exports = ['$scope', '$timeout', 'UsersService', UsersController];
