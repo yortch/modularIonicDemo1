@@ -5,8 +5,6 @@
 	  <ion-item class="item-avatar" ng-repeat="item in items" href="#/app/users/{{item.user.username}}">
 	    <img src="{{item.user.picture.thumbnail}} " />
 	    {{item.user.name.first}} {{item.user.name.last}}
-	    <p>{{item.user.location.city}}</p>
-	    <p>{{item.user.username}}</p>
 	  </ion-item>
 	</ion-list>
 	<ion-infinite-scroll on-infinite="loadMore()" distance="5%"></ion-infinite-scroll>

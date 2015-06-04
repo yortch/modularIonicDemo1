@@ -14,33 +14,28 @@ function UsersService($http, $q) {
     },
     GetNewUser: function(){
       return $http.get(BASE_URL).then(function(response){
-        items.concat(response.data.results);
         newItems = response.data.results;
+        items = items.concat(newItems);
         return newItems;
       });
     },
     GetNewUsers: function(){
       return $http.get(BASE_URL+'?results=10').then(function(response){
-        items.concat(response.data.results);
         newItems = response.data.results;
+        console.log("Items length: " + items.length);
+        items = items.concat(newItems);
+        console.log("Items length after scroll: " + items.length);
         return newItems;
       });
     },
     GetUser: function(userId) {
-      var dfd = $q.defer();
-      console.log("UsersService - userId: " + userId);
-      items.forEach(function(item) {
-          console.log("For each User: " + item.user.username);
-        if (item.user.username === userId) {
-          console.log("User found: " + item.user.username);
-          dfd.resolve(item.user);
+      for(var i=0;i<items.length;i++){
+        if(items[i].user.username == userId){
+          console.log("User found: " + items[i].user.username);
+          return items[i].user;
         }
-        else {
-          dfd.reject();
-        }
-      });
-
-      return dfd.promise;
+      }
+      console.log("User not found: " + userId);
     }
   };
 }

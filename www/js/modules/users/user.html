@@ -4,12 +4,12 @@
   		<div class="item item-avatar">
     		<img src="{{user.picture.medium}}" />
     		<h2>{{user.name.first}} {{user.name.last}}</h2>
-    		<p>{{user.email}}</p>
+    		<p><a href="mailto:{{user.email}}">{{user.email}}</a></p>
     		<p>{{user.phone}}</p>
   		</div>
   		<div class="item item-body">
   			<p>{{user.location.street}}</p>
-  			<p>{{user.locatin.county}}, {{user.location.state}}</p>
+  			<p>{{user.location.city}}{{user.location.county}}, {{user.location.state}}</p>
   		</div>
 	</div>
   </ion-content>
