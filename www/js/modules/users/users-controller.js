@@ -25,6 +25,11 @@ function UsersController($scope, $timeout, UsersService) {
 			$scope.$broadcast('scroll.infiniteScrollComplete');
 		});
 	};	
+
+	$scope.delete = function(index) {
+		var items = UsersService.DeleteUser(index);
+		$scope.items = items; 
+	};
 }
 
 module.exports = ['$scope', '$timeout', 'UsersService', UsersController];

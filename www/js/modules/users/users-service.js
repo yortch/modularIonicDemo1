@@ -12,10 +12,11 @@ function UsersService($http, $q) {
         return items;
       });
     },
+    //Used from pull to refresh (prepend new items)
     GetNewUser: function(){
       return $http.get(BASE_URL).then(function(response){
         newItems = response.data.results;
-        items = items.concat(newItems);
+        items = newItems.concat(items);
         return newItems;
       });
     },
@@ -29,14 +30,17 @@ function UsersService($http, $q) {
       });
     },
     GetUser: function(userId) {
-      for(var i=0;i<items.length;i++){
-        if(items[i].user.username == userId){
-          console.log("User found: " + items[i].user.username);
-          return items[i].user;
-        }
+      if (userId < items.length) {
+        return items[userId].user;
       }
-      console.log("User not found: " + userId);
-    }
+      else {
+        console.log("User not found: " + userId);
+      }
+    },
+    DeleteUser: function(index) {
+      items.splice(index, 1);
+      return items;
+    }    
   };
 }
 
