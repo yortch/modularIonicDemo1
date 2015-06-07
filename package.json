@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "menuDemo1: An Ionic project",
   "napa": {
-    "bootstrap": "twbs/bootstrap/#v3.3.1",
-    "angular": "angular/bower-angular#v1.3.1-build.3430+sha.6502ab0",
-    "angular-ui/ui-router": "angular-ui/ui-router#0.2.13",
-    "ionic": "driftyco/ionic-bower"
+    "angular": "angular/bower-angular#v1.3.1-build.3430+sha.6502ab0"
   },
   "dependencies": {
     "gulp": "^3.5.6",
