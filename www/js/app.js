@@ -1,9 +1,8 @@
 'use strict';
 
-require('angular/angular');
-require('ionic/js/ionic.bundle');
+require('angular');
+require('ionic');
 
-//require('./modules/starter/starter');
 require('./modules/playlists/playlists');
 require('./modules/login/login');
 require('./modules/menu/menu');
