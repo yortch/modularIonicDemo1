@@ -8,7 +8,7 @@ require('./modules/login/login');
 require('./modules/menu/menu');
 require('./modules/users/users');
   
-module.exports = angular.module('appstart', [
+module.exports = angular.module('starter', [
     'ionic',
     'menu',
     'login',
