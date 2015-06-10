@@ -72,7 +72,7 @@ gulp.task('lint', function() {
 });
 
 gulp.task('browserify', function() {
-  return browserify(paths.appSrc, {debug: true})
+  return browserify('./www/js/app.js', {debug: true})
     .bundle()
     .pipe(vinylSource('bundle.js'))
     .pipe(gulp.dest('./www/dist'));

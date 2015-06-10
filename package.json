@@ -2,6 +2,9 @@
   "name": "menudemo1",
   "version": "1.0.0",
   "description": "menuDemo1: An Ionic project",
+  "scripts": {
+    "install": "napa"
+  },  
   "napa": {
     "angular": "angular/bower-angular#v1.3.13",   
     "ionic": "driftyco/ionic-bower#v1.0.0"
