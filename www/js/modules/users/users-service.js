@@ -23,9 +23,7 @@ function UsersService($http, $q) {
     GetNewUsers: function(){
       return $http.get(BASE_URL+'?results=10').then(function(response){
         newItems = response.data.results;
-        console.log("Items length: " + items.length);
         items = items.concat(newItems);
-        console.log("Items length after scroll: " + items.length);
         return newItems;
       });
     },
